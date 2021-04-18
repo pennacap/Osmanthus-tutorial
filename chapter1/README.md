@@ -1,34 +1,34 @@
-# Chapter 1 -- 搭建基本的开发环境
+# Chapter 1 - Setting up a basic development environment
 
-首先, 我们还是选择在`Linux`下来进行我们内核的开发, 本章主要是帮助读者将基本的内核开发环境搭建起来.
+First of all, we choose to develop our kernel under Linux. This chapter is mainly to help readers set up a basic kernel development environment.
 
-我们将内核开发循环分为五个步骤:
+We divide the kernel development cycle into five steps:
 
-1. 编辑
+1. Editing
 
-   编辑器的选择看个人, 怎么顺手怎么来. 我在本地使用是`emacs`
+   I use `emacs` locally. You can use another editor
 
-2. 编译 && 汇编
+2. Compiling and Assembly
 
-   这里我们需要要`GCC >= 4.7.1` , 当然`Clang`也是可以的, 但是`Clang`某些编译参数可能不一样.
+   Here we need `GCC >= 4.7.1`. Of course we could use `clang`, but some compilation parameters of `clang` may be different.
 
-   汇编器为了后续的方便, 我们使用`yasm` 而不是`nasm`, `yasm`是兼容`nasm`的, 不同之处是`yasm`具有更加丰富的功能, 在后边的开发中我们可以看到`yasm`可以给我们用汇编编写的函数修改`ElF`属性
+   We are going to use `yasm` instead of `nasm` as an assembler. `yasm` is compatible with `nasm`, the difference is that `yasm` has more features. We can see later that `yasm` can modify the `ELF` attributes for functions written in assembly
 
-3. 链接
+3. Link
 
-   这里我们就用`GNU ld`
+   Here we use `GNU ld`
 
-4. 运行
+4. Run
 
-   对于运行步骤, 我们需要先对链接好的内核进行打包, 通过`GRUB`提供的工具链生成一个镜像文件, 放到虚拟机中去运行. 这里我们使用`qemu-i386`, 现在大多数发行版提供的默认是`qmeu-x86_64`, 可能各位要去利用包管理器搜索一下`qemu`其他处理器架构的版本.
+   For the running steps, we need to package the linked kernel first, generate an image file through the tool chain provided by `GRUB`, and put it in the virtual machine to run. Here we use `qemu-system-i386`. 
 
-5. 调试
+5. Debugging
 
-   这里只需要`GDB`就行了, 不需要其他的工具, 如果需要功能更加强大`gdb`前端, 可以上`github`搜索`gdbgui`
+   Only `GDB` is needed here, no other tools are needed. If you need a more powerful `gdb` front-end, you can go to `github` and search for `gdbgui`
 
 
 
-在我的环境下(`ArchLinux`), 我总结了一下, 我安装的包, 不同的发行版本包名可能不同, 但是基本上是有规律可循的, 用包管理搜索一下就好.
+In my environment (`ArchLinux`), the packages have been summarized below. 
 
 1. `yasm`
 2. `gcc`
@@ -36,9 +36,19 @@
 4. `grub`
 5. `mtools`
 6. `xorriso`
-7. `qemu-arch-extra` (只要你有`qemu-system-i386`就行)
-8. `git` (版本管理)
+7. `qemu-arch-extra` (as long as you have `qemu-system-i386`)
+8. `git` (version management)
 
-你可以把我在[Github的项目Clone](https://github.com/iosmanthus/Osmanthus)下来看看能不能编译, 如果没有问题, 那么说明环境已经搭建起来了.
+For `Ubuntu`/`Debian`/`Kali`, the packages are as follows.
 
-如果你遇到了问题, 我建议你粗略的看看我写的`Makefile`, 里边已经说明了一切工具依赖.
+1. `yasm`
+2. `gcc`
+3. `gdb`
+4. `grub-common`
+5. `grub-pc-bin`
+6. `mtools`
+7. `xorriso`
+8. `qemu-system-x86`
+9. `git`
+
+Look in the `Makefile` to understand the dependencies.
