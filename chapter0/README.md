@@ -1,24 +1,23 @@
-# Chapter0 -- 前言
+# Chapter0 - Preface
 
-本教程旨在通过逐步解析的方式, 帮助读者构建起一个简易内核
+This tutorial aims to help readers build a simple kernel through a step-by-step analysis.
 
-我们的目标是:
+Our target is:
 
-1. 通过GRUB引导
-2. VGA兼容模式驱动
-3. 格式打印函数 && 内核调试函数
-4. GDT表的设置
-5. IDT表的设置
-6. 中断管理
-7. 定时器编程
-8. 物理内存管理
-9. 虚拟内存管理
-10. 内核堆管理
-11. 内核级多线程
+1. Booting via GRUB
+2. VGA mode compatible driver
+3. Format printing function and kernel debugging function
+4. Setting the GDT
+5. Setting the IDT
+6. Interrupt management
+7. Timer programming
+8. Physical Memory management
+9. Virtual Memory Management
+10. Kernel Heap Management
+11. Kernel-level multithreading
 
 
-不用觉得这些有多高大上, 写这篇东西的人只是一个大二的小菜鸡, 哈哈
 
-这篇教程大部分是参考了[x86架构操作系统内核的实现](http://wiki.0xffffff.org),  当然也有一些改进和除虫的地方, 具体细节的阐述方法也不一样. 无论如何, 我都十分佩服作者刘欢能够写出这么优质的博客.
+Most of this tutorial refers to the [Implementation of the x86-based operating system kernel](http://wiki.0xffffff.org). Of course, there are some improvements and bugs, and the specific details are different. In any case , I admire the author Liu Huan for his ability to write such a high-quality blog.
 
-当然还有[JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/), 说实话这个我没参考多少, 看上去挺好, 深入进去就发现, 实在是太简陋了, [OSDEV的这篇Wiki](https://wiki.osdev.org/James_Molloy's_Tutorial_Known_Bugs)抓出了他一堆BUG和奇奇怪怪的问题, 但是还是有一定作用的.
+Of course there is [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/). To be honest, I didn’t refer to it much. [OSDEV's Wiki](https://wiki.osdev.org/James_Molloy's_Tutorial_Known_Bugs) caught a bunch of bugs and weird problems.
