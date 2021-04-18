@@ -50,5 +50,3 @@ For `Ubuntu`/`Debian`/`Kali`, the packages are as follows.
 7. `xorriso`
 8. `qemu-system-x86`
 9. `git`
-
-Look in the `Makefile` to understand the dependencies.
